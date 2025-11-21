@@ -2,6 +2,11 @@
 
 PWA (Progressive Web App) untuk membuat surat izin otomatis dengan Firebase cloud sync.
 
+## 📚 Documentation
+
+- **[🚀 DEPLOYMENT GUIDE](DEPLOYMENT_GUIDE.md)** - Panduan deployment lengkap step-by-step (30-45 menit)
+- **[🔒 SECURITY AUDIT](SECURITY_AUDIT.md)** - Laporan audit keamanan (Score: 9.5/10)
+
 ## 🚀 Fitur
 
 - ✅ **Generator Surat Izin Otomatis** - Template profesional untuk berbagai jenis izin
@@ -20,7 +25,9 @@ PWA (Progressive Web App) untuk membuat surat izin otomatis dengan Firebase clou
 - npm atau yarn
 - Akun Firebase (gratis)
 
-## 🛠️ Setup & Installation
+## 🛠️ Quick Start
+
+> **⚠️ Untuk panduan lengkap step-by-step, baca [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)**
 
 ### 1. Clone Repository
 
@@ -103,10 +110,16 @@ File hasil build akan ada di folder `dist/`
 
 ## 🔒 Keamanan
 
+> **✅ Security Audit Report:** [SECURITY_AUDIT.md](SECURITY_AUDIT.md)
+
+**Status:** ✅ **NO CREDENTIALS EXPOSED**
+
+- ✅ **Environment Variables** - Semua credentials aman di env vars
+- ✅ **No Hardcoded Keys** - Source code bersih dari credentials
+- ✅ **Git History Clean** - Tidak ada credentials ter-commit
+- ✅ **Firestore Rules** - Akses data terisolasi per user
+- ✅ **Firebase Security** - Authentication required untuk semua operasi
 - ⚠️ **JANGAN** commit file `.env.local` ke repository
-- ✅ Semua credentials disimpan di environment variables
-- ✅ Firebase Security Rules membatasi akses per user
-- ✅ Admin access dikontrol via email whitelist di `App.tsx`
 
 ## 👨‍💼 Setup Admin Access
 
@@ -118,24 +131,19 @@ const ADMIN_EMAIL = "your-email@gmail.com";
 
 ## 📱 Deploy ke Netlify
 
-### Option 1: Deploy via Netlify CLI
+> **📖 Panduan lengkap dengan screenshot:** [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
 
-```bash
-npm install -g netlify-cli
-netlify login
-netlify init
-netlify deploy --prod
-```
+### Quick Deploy (Summary)
 
-### Option 2: Deploy via Netlify Dashboard
-
-1. Login ke [Netlify](https://netlify.com)
-2. Import repository dari GitHub
-3. Build settings:
+1. **Push to GitHub**
+2. **Connect Netlify** - Import dari GitHub
+3. **Build Settings:**
    - Build command: `npm run build`
    - Publish directory: `dist`
-4. Environment variables: Tambahkan semua `VITE_*` dari `.env.local`
-5. Deploy!
+4. **Environment Variables:** Add semua `VITE_*` dari `.env.local`
+5. **Deploy!** 🚀
+
+**Butuh bantuan?** Lihat troubleshooting lengkap di [DEPLOYMENT_GUIDE.md](DEPLOYMENT_GUIDE.md)
 
 ## 🎯 Penggunaan
 
