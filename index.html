@@ -4,7 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#2563eb" />
-    <title>IzinKuy - Generator Izin</title>
+    <meta name="description" content="Generator surat izin otomatis dengan Firebase cloud sync" />
+    <title>Izin Pintar - Generator Surat Izin</title>
     <link rel="manifest" href="/manifest.json">
     <link rel="icon" type="image/png" href="/icon-192.png" />
     <script src="https://cdn.tailwindcss.com"></script>
@@ -16,13 +17,6 @@
           extend: {
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
-            },
-            colors: {
-              glass: {
-                light: 'rgba(255, 255, 255, 0.7)',
-                dark: 'rgba(30, 30, 30, 0.6)',
-                border: 'rgba(255, 255, 255, 0.2)',
-              }
             }
           }
         }
@@ -35,42 +29,32 @@
         background-attachment: fixed;
         min-height: 100vh;
       }
-      .hide-scrollbar::-webkit-scrollbar {
-        display: none;
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px;
       }
-      .hide-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(0, 0, 0, 0.3);
       }
     </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
-    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
-    "firebase/": "https://aistudiocdn.com/firebase@^12.6.0/",
-    "vite": "https://aistudiocdn.com/vite@^7.2.4",
-    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1"
-  }
-}
-</script>
-<link rel="stylesheet" href="/index.css">
-</head>
+  </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="/src/index.tsx"></script>
+    <script type="module" src="/index.tsx"></script>
     <script>
       if ('serviceWorker' in navigator) {
         window.addEventListener('load', () => {
           navigator.serviceWorker.register('/sw.js')
             .then(reg => console.log('SW registered!'))
-            .catch(err => console.log('SW failed', err));
+            .catch(err => console.log('SW registration failed:', err));
         });
       }
     </script>
-  <script type="module" src="/index.tsx"></script>
-</body>
+  </body>
 </html>
